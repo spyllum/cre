@@ -27,6 +27,7 @@ async def geri_donustur(ctx, item: str):
     item = item.lower()
     if item in recycling_info:
         await ctx.send(recycling_info[item])
+        await ctx.send("Botu kullandığınız için teşekkürler")
     else:
         await ctx.send("Bu eşya hakkında geri dönüşüm bilgisi bulunmamaktadır. Lütfen başka bir eşya girin.")
 
@@ -45,8 +46,17 @@ async def ayrisma_suresi(ctx, item: str):
     item = item.lower()
     if item in decomposition_info:
         await ctx.send(decomposition_info[item])
+        await ctx.send("Botu kullandığınız için teşekkürler")
     else:
         await ctx.send("Bu eşya hakkında ayrışma süresi bilgisi bulunmamaktadır. Lütfen başka bir eşya girin.")
+    @bot.command()
+async def sarkilar(ctx, item: str):
+    links = {
+        "https://youtu.be/5zC6uZpSEi8?si=CJNedf0AI65yHmj5"
+        "https://youtu.be/Hu97Hk8MT8U?si=BoJCGk_9mms-4i_s"
+    }
+    secilen_link = random.choice(links)
 
+    await ctx.send(f"İşte {item} için seçtiğim şarkı: {secilen_link}")
 # Botu çalıştırıyoruz
 bot.run("TOKEN")  # Buraya kendi bot tokenınızı yazın
